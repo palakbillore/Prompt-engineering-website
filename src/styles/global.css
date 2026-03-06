@@ -1,0 +1,183 @@
+/* =====================================================
+   global.css — PromptCraft Portal Base Styles
+   ===================================================== */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom base styles ── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body bg-ink-50 text-ink-800 transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-ink-950 text-ink-100;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  code, pre {
+    @apply font-mono;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-300 rounded-full;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-ink-600;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-400;
+  }
+}
+
+/* ── Reusable component classes ── */
+@layer components {
+  /* Page container */
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Article prose styling */
+  .prose-custom {
+    @apply text-ink-700 dark:text-ink-200 leading-relaxed;
+  }
+
+  .prose-custom h2 {
+    @apply text-2xl font-display font-bold text-ink-900 dark:text-ink-50 mt-10 mb-4 pb-2 border-b border-ink-200 dark:border-ink-700;
+  }
+
+  .prose-custom h3 {
+    @apply text-xl font-display font-semibold text-ink-800 dark:text-ink-100 mt-8 mb-3;
+  }
+
+  .prose-custom p {
+    @apply mb-4 leading-7;
+  }
+
+  .prose-custom ul {
+    @apply list-none mb-4 space-y-2;
+  }
+
+  .prose-custom ul li {
+    @apply pl-5 relative;
+  }
+
+  .prose-custom ul li::before {
+    content: '▸';
+    @apply absolute left-0 text-amber-500 font-bold;
+  }
+
+  /* Code block */
+  .code-block {
+    @apply bg-ink-900 dark:bg-ink-950 text-ink-100 rounded-xl p-5 overflow-x-auto font-mono text-sm leading-6 border border-ink-700 dark:border-ink-800 my-5;
+  }
+
+  /* Inline code */
+  .inline-code {
+    @apply bg-ink-100 dark:bg-ink-800 text-rose-500 dark:text-rose-400 px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+
+  /* Highlight / tip box */
+  .highlight-box {
+    @apply border-l-4 border-amber-400 bg-amber-50 dark:bg-amber-900/20 text-ink-700 dark:text-ink-200 px-5 py-4 rounded-r-xl my-5;
+  }
+
+  .highlight-box-success {
+    @apply border-l-4 border-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 text-ink-700 dark:text-ink-200 px-5 py-4 rounded-r-xl my-5;
+  }
+
+  .highlight-box-danger {
+    @apply border-l-4 border-rose-400 bg-rose-50 dark:bg-rose-900/20 text-ink-700 dark:text-ink-200 px-5 py-4 rounded-r-xl my-5;
+  }
+
+  /* Section tag badge */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium font-display;
+  }
+
+  /* Nav link */
+  .nav-link {
+    @apply px-3 py-2 rounded-lg text-sm font-medium font-display transition-all duration-200
+           text-ink-600 dark:text-ink-300
+           hover:text-ink-900 dark:hover:text-ink-50
+           hover:bg-ink-100 dark:hover:bg-ink-800;
+  }
+
+  .nav-link-active {
+    @apply px-3 py-2 rounded-lg text-sm font-medium font-display
+           text-amber-600 dark:text-amber-400
+           bg-amber-50 dark:bg-amber-900/30;
+  }
+
+  /* Sidebar link */
+  .sidebar-link {
+    @apply flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium font-body transition-all duration-200
+           text-ink-600 dark:text-ink-400
+           hover:text-ink-900 dark:hover:text-ink-100
+           hover:bg-ink-100 dark:hover:bg-ink-800;
+  }
+
+  .sidebar-link-active {
+    @apply flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium font-body
+           text-amber-600 dark:text-amber-400
+           bg-amber-50 dark:bg-amber-900/30;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-display font-semibold
+           bg-amber-400 hover:bg-amber-300 text-ink-950
+           transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-display font-semibold
+           border border-ink-300 dark:border-ink-600
+           text-ink-700 dark:text-ink-300
+           hover:border-ink-400 dark:hover:border-ink-500
+           hover:bg-ink-100 dark:hover:bg-ink-800
+           transition-all duration-200;
+  }
+}
+
+/* ── Animation utilities ── */
+@layer utilities {
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+
+  .animate-fade-up-initial {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  /* Noise texture overlay */
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+  }
+}
