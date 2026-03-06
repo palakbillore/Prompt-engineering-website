@@ -14,7 +14,7 @@ import Introduction from './pages/Introduction.jsx'
 import Concepts from './pages/Concepts.jsx'
 import Techniques from './pages/Techniques.jsx'
 import Examples from './pages/Examples.jsx'
-import BestPractices from './pages/BestPractices.jsx'
+import BestPractices from './pages/Bestpractices.jsx'
 import Resources from './pages/Resources.jsx'
 
 // ── Dark Mode Context ─────────────────────────────────
